@@ -1,10 +1,9 @@
 from flask import Flask, render_template
 import os
 
-app = Flask(__name__, template_folder='templates')
-
-@app.route('/')
-def index():
+app = Flask(__name__, 
+            template_folder='templates', 
+            static_folder='static')
     return render_template('index.html')
 
 if __name__ == '__main__':
