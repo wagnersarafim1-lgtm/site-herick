@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 import os
 
-# Este código ensina o Python a achar as pastas dentro de 'modelos'
 app = Flask(__name__, 
             template_folder='modelos', 
             static_folder='modelos/static/imagens')
