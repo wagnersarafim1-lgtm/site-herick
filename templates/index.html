@@ -4,90 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erik Estevão | Luxury Image Strategy</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-        :root {
-            --bg-site: #f2ede4;
-            --text-main: #2d2621;
-            --accent-gold: #b59461;
-            --footer-bg: #111111;
-        }
-
+        :root { --bg: #f2ede4; --text: #2d2621; --gold: #b59461; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; }
-
-        /* Menu Superior */
-        nav {
-            position: fixed; top: 0; width: 100%; background: #fff;
-            padding: 20px 8%; z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 22px; color: var(--text-main); text-decoration: none; letter-spacing: 2px; }
-        nav .links a { text-decoration: none; color: var(--text-main); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 30px; }
-
-        /* Seção Sobre (A Mente) - ESTILO DE COLUNAS REFEITO */
-        #sobre { 
-            padding: 160px 8% 100px; 
-            background: #fff; 
-        }
-        .about-wrap { 
-            display: flex; /* Garante que fiquem lado a lado */
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .about-img {
-            flex: 1; /* Foto ocupa metade */
-            display: flex;
-            justify-content: flex-end;
-        }
-        .about-img img { 
-            width: 100%; 
-            max-width: 450px;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        .about-text {
-            flex: 1.2; /* Texto ocupa um pouco mais que a metade */
-        }
-        .about-text .tag { letter-spacing: 8px; color: var(--accent-gold); font-size: 10px; text-transform: uppercase; display: block; margin-bottom: 15px; font-weight: 700; }
-        .about-text h2 { font-family: 'Playfair Display'; font-size: 45px; margin-bottom: 25px; line-height: 1.2; }
-        .about-text p { margin-bottom: 20px; font-size: 16px; color: #555; text-align: justify; }
-        
-        .quote-box { 
-            margin-top: 30px; padding: 25px; border-left: 3px solid var(--accent-gold); 
-            background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 18px; 
-        }
-
-        /* Depoimentos */
-        #depoimentos { padding: 100px 8%; text-align: center; background: var(--bg-site); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0; }
+        body { background-color: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--text); line-height: 1.8; }
+        nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 20px 8%; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(181,148,97,0.1); }
+        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 22px; color: var(--text); text-decoration: none; letter-spacing: 2px; }
+        nav .links a { text-decoration: none; color: var(--text); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 30px; }
+        #sobre { padding: 160px 8% 100px; background: #fff; }
+        .about-wrap { display: flex; align-items: center; justify-content: center; gap: 80px; max-width: 1200px; margin: 0 auto; }
+        .about-img { flex: 1; text-align: right; }
+        .about-img img { width: 100%; max-width: 450px; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .about-text { flex: 1.2; }
+        .tag { letter-spacing: 8px; color: var(--gold); font-size: 10px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 15px; }
+        .about-text h2 { font-family: 'Playfair Display'; font-size: 45px; margin-bottom: 25px; }
+        .quote-box { margin-top: 30px; padding: 25px; border-left: 3px solid var(--gold); background: var(--bg); font-family: 'Playfair Display'; font-style: italic; font-size: 18px; }
+        #depoimentos { padding: 80px 8%; text-align: center; background: var(--bg); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .testimonial-card { background: #fff; padding: 40px; border-radius: 4px; text-align: left; }
-        .testimonial-card p { font-style: italic; margin-bottom: 20px; }
-
-        /* Rodapé */
-        footer { background: var(--footer-bg); color: #fff; padding: 80px 8% 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-social a { color: var(--accent-gold); font-size: 20px; margin-right: 15px; text-decoration: none; }
-        .copyright { text-align: center; margin-top: 60px; font-size: 10px; opacity: 0.4; letter-spacing: 2px; }
-
-        /* Ajuste para Celular */
-        @media (max-width: 900px) {
-            .about-wrap { flex-direction: column; text-align: center; }
-            .about-img { justify-content: center; }
-            .about-text h2 { font-size: 32px; }
-        }
+        footer { background: #111; color: #fff; padding: 60px 8%; text-align: center; }
+        .footer-social { display: flex; justify-content: center; gap: 25px; margin: 30px 0; }
+        .footer-social a { color: var(--gold); font-size: 28px; transition: 0.3s; }
+        .footer-social a:hover { transform: translateY(-5px); color: #fff; }
+        @media (max-width: 900px) { .about-wrap { flex-direction: column; text-align: center; } .about-img { text-align: center; } }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="#" class="logo">ERIK ESTEVÃO</a>
         <div class="links">
@@ -96,7 +40,6 @@
             <a href="#contato">Consultoria</a>
         </div>
     </nav>
-
     <section id="sobre">
         <div class="about-wrap">
             <div class="about-img">
@@ -105,48 +48,26 @@
             <div class="about-text">
                 <span class="tag">Image & Digital Strategist</span>
                 <h2>A Mente por Trás da Estratégia</h2>
-                <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão atua na intersecção entre a psicologia comportamental e o design de alto impacto. Sua missão é clara: transformar a imagem pessoal e corporativa em um ativo financeiro estratégico.</p>
-                <p>Com uma trajetória marcada pela busca constante pela excelência, Erik desenvolveu uma metodologia proprietária que utiliza os arquétipos de poder para construir presenças digitais que impõem respeito imediato.</p>
-                <div class="quote-box">
-                    "O detalhe é a fronteira final entre o comum e o extraordinário."
-                </div>
+                <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão atua na intersecção entre a psicologia comportamental e o design de alto impacto.</p>
+                <div class="quote-box">"O detalhe é a fronteira final entre o comum e o extraordinário."</div>
             </div>
         </div>
     </section>
-
     <section id="depoimentos">
         <h2>Feedback de Autoridade</h2>
         <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"O Erik elevou meu posicionamento a um nível que eu não imaginava ser possível."</p>
-                <strong>Ricardo Menezes — CEO</strong>
-            </div>
-            <div class="testimonial-card">
-                <p>"Estratégia impecável. Minha imagem comunica exatamente a autoridade que preciso."</p>
-                <strong>Ana Paula Silva — Diretora</strong>
-            </div>
+            <div class="testimonial-card"><p>"O Erik elevou meu posicionamento a um nível extraordinário."</p><strong>Ricardo Menezes — CEO</strong></div>
+            <div class="testimonial-card"><p>"Estratégia impecável. Minha imagem comunica autoridade imediata."</p><strong>Ana Paula Silva — Diretora</strong></div>
         </div>
     </section>
-
     <footer id="contato">
-        <div class="footer-grid">
-            <div class="footer-item">
-                <h4>LOCALIZAÇÃO</h4>
-                <p>Setor Marista, Goiânia - GO</p>
-                <p>+55 (61) 98168-2382</p>
-            </div>
-            <div class="footer-item">
-                <h4>REDES SOCIAIS</h4>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
+        <h4>CONECTE-SE</h4>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/erikestevao" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <div class="copyright">
-            &copy; 2026 DEVELOPED BY WAGNER SARAFIM
-        </div>
+        <p>&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
     </footer>
-
 </body>
 </html>
