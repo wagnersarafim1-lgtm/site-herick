@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
 
-        /* Navegação */
+        /* Navegação Superior */
         nav {
             position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
             padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; 
@@ -28,41 +28,46 @@
         .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 26px; color: var(--text-main); text-decoration: none; letter-spacing: 3px; }
         nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 35px; }
 
-        /* --- BOTÕES FLUTUANTES INTERATIVOS --- */
-        .float-contact {
+        /* --- BOTÕES FLUTUANTES (WHATSAPP QUE BRILHA E EMAIL) --- */
+        .float-container {
             position: fixed; bottom: 40px; right: 40px;
             display: flex; flex-direction: column; gap: 20px; z-index: 1000;
         }
 
-        .btn-float {
-            width: 70px; height: 70px; border-radius: 50%;
+        .btn-interativo {
+            width: 75px; height: 75px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 32px; color: #fff; text-decoration: none !important;
+            font-size: 34px; color: #fff; text-decoration: none !important;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative; overflow: hidden; transition: 0.3s;
+            position: relative; overflow: hidden; transition: 0.4s;
         }
 
-        /* BRILHO NO WHATSAPP (Luz que atravessa o botão) */
-        .btn-whatsapp { background-color: #25d366; animation: pulse 2s infinite; }
-        .btn-whatsapp::after {
-            content: ""; position: absolute; top: -50%; left: -150%; width: 200%; height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            transform: rotate(45deg); animation: shine 3s infinite;
+        /* BRILHO DE LUXO NO WHATSAPP */
+        .btn-whats-brilho { background-color: #25d366; animation: pulsoForte 2s infinite; }
+        
+        /* O reflexo de luz que passa pelo botão */
+        .btn-whats-brilho::after {
+            content: ""; position: absolute; top: -50%; left: -150%; width: 250%; height: 250%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
+            transform: rotate(45deg); animation: luzPassando 2.5s infinite;
         }
 
-        @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        @keyframes luzPassando { 0% { left: -150%; } 100% { left: 150%; } }
+        @keyframes pulsoForte { 
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); transform: scale(1); } 
+            70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); transform: scale(1.05); } 
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } 
+        }
 
-        .btn-email { background-color: var(--accent-gold); }
-        .btn-float:hover { transform: scale(1.1) translateY(-5px); }
+        .btn-mail-link { background-color: var(--accent-gold); }
+        .btn-interativo:hover { transform: translateY(-10px); }
 
-        /* --- LAYOUT ORIGINAL RESTAURADO --- */
+        /* --- LAYOUT ORIGINAL (ALTO PADRÃO) --- */
         #sobre { padding: 160px 8% 100px; background: #fff; min-height: 100vh; display: flex; align-items: flex-start; }
         .about-wrap { display: flex; align-items: flex-start; justify-content: center; gap: 100px; max-width: 1400px; margin: 0 auto; }
         .about-img img { width: 100%; max-width: 520px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
         
         .about-text { flex: 1.2; }
-        .tag { letter-spacing: 12px; color: var(--accent-gold); font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 30px; }
         .about-text h2 { font-family: 'Playfair Display'; font-size: 62px; margin-bottom: 40px; line-height: 1.1; color: var(--text-main); }
         .about-text p { font-size: 21px; margin-bottom: 30px; color: #444; text-align: justify; }
 
@@ -82,11 +87,11 @@
 </head>
 <body>
 
-    <div class="float-contact">
-        <a href="https://wa.me/5561981682382" class="btn-float btn-whatsapp" target="_blank" title="WhatsApp">
+    <div class="float-container">
+        <a href="https://wa.me/5561981682382" class="btn-interativo btn-whats-brilho" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="mailto:Erikstylist@gmail.com" class="btn-float btn-email" title="Enviar E-mail">
+        <a href="mailto:Erikstylist@gmail.com" class="btn-interativo btn-mail-link" title="Falar por E-mail">
             <i class="fas fa-envelope"></i>
         </a>
     </div>
@@ -105,7 +110,7 @@
                 <img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
             </div>
             <div class="about-text">
-                <span class="tag">Image Strategist</span>
+                <span style="letter-spacing: 12px; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;">Image Strategist</span>
                 <h2>A Mente por Trás da Estratégia</h2>
                 <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
                 <div class="quote-box">"O detalhe é a fronteira final entre o comum e o extraordinário."</div>
@@ -121,7 +126,7 @@
                 <p><a href="mailto:Erikstylist@gmail.com" style="color: #fff; text-decoration: none;">Erikstylist@gmail.com</a></p>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 100px; font-size: 13px; opacity: 0.3; letter-spacing: 2px;">&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
+        <p style="text-align: center; margin-top: 100px; font-size: 13px; opacity: 0.3;">&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
     </footer>
 
 </body>
