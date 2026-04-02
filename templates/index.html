@@ -1,185 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herick Estevão | Luxury Image Strategy</title>
+<style>
+    /* ... seu código anterior ... */
+
+    /* AJUSTE DE ALINHAMENTO DA SEÇÃO SOBRE */
+    #sobre { 
+        padding: 120px 8%; /* Reduzi um pouco o padding para não ficar um buraco branco gigante */
+        background: #fff; 
+        min-height: 100vh;
+        display: flex;
+        align-items: center; /* Centraliza verticalmente o conteúdo na tela */
+        justify-content: center;
+    }
+
+    .about-wrap { 
+        display: flex; 
+        align-items: center; /* Centraliza a imagem e o texto um em relação ao outro */
+        justify-content: space-between; 
+        gap: 60px; 
+        max-width: 1200px; 
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .about-img { 
+        flex: 1; 
+        display: flex;
+        justify-content: center; /* Garante que a imagem esteja no centro do lado dela */
+    }
+
+    .about-img img { 
+        width: 100%; 
+        max-width: 450px; /* Tamanho fixo para não distorcer */
+        height: auto;
+        border-radius: 4px; 
+        box-shadow: 0 30px 60px rgba(0,0,0,0.15); 
+    }
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    .about-text { 
+        flex: 1.2; 
+        text-align: left; /* Mantém o texto alinhado à esquerda como no print */
+    }
 
-    <style>
-        :root {
-            --bg-site: #f2ede4;
-            --text-main: #2d2621;
-            --accent-gold: #b59461;
-            --footer-bg: #111111;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
-
-        /* Menu Superior Fixo */
-        nav {
-            position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
-            padding: 20px 8%; z-index: 100; display: flex; justify-content: space-between; 
-            align-items: center; border-bottom: 1px solid rgba(181, 148, 97, 0.1);
-        }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 22px; color: var(--text-main); text-decoration: none; letter-spacing: 3px; }
-        nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 30px; transition: 0.3s; }
-        nav .links a:hover { color: var(--accent-gold); }
-
-        /* Botão Flutuante WhatsApp */
-        .btn-flutuante {
-            position: fixed; bottom: 35px; right: 35px;
-            width: 60px; height: 60px; background-color: #25d366;
-            color: #fff; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            z-index: 1000; text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("{{ url_for('static', filename='imagens/foto_herick3.png.jpeg') }}");
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: #fff; padding: 0 10%;
-        }
-        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(40px, 8vw, 85px); text-transform: uppercase; margin-bottom: 10px; }
-        .hero p { letter-spacing: 8px; text-transform: uppercase; color: var(--accent-gold); font-weight: 700; font-size: 13px; }
-
-        /* Seção Sobre (Alinhamento Corrigido) */
-        #sobre { 
-            padding: 100px 8%; background: #fff; min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-        }
+    /* Ajuste para mobile */
+    @media (max-width: 900px) { 
         .about-wrap { 
-            display: flex; align-items: center; justify-content: center; 
-            gap: 70px; max-width: 1200px; width: 100%; margin: 0 auto;
+            flex-direction: column; 
+            text-align: center; 
+            gap: 40px;
+        } 
+        .about-text {
+            text-align: center;
         }
-        .about-img { flex: 1; display: flex; justify-content: center; }
-        .about-img img { width: 100%; max-width: 450px; border-radius: 2px; box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
-        
-        .about-text { flex: 1.2; text-align: left; }
-        .about-text h2 { font-family: 'Playfair Display'; font-size: 45px; margin-bottom: 25px; line-height: 1.1; color: var(--text-main); }
-        .about-text p { font-size: 17px; margin-bottom: 20px; color: #444; }
-
-        .quote-box { 
-            margin-top: 35px; padding: 25px; border-left: 3px solid var(--accent-gold); 
-            background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 19px; 
-        }
-
-        /* Depoimentos (Feedback de Autoridade) */
-        #depoimentos { padding: 120px 8%; text-align: center; background: var(--bg-site); }
-        #depoimentos h2 { font-family: 'Playfair Display'; font-size: 38px; margin-bottom: 50px; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .testimonial-card { background: #fff; padding: 45px; border-radius: 2px; text-align: left; box-shadow: 0 5px 20px rgba(0,0,0,0.02); }
-        .testimonial-card p { font-style: italic; color: #666; margin-bottom: 20px; font-size: 15px; }
-        .testimonial-card strong { display: block; color: var(--accent-gold); text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
-
-        /* Rodapé Profissional */
-        footer { background: var(--footer-bg); color: #fff; padding: 80px 8% 40px; }
-        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-item h4 { letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 15px; font-size: 14px; }
-        .footer-social { display: flex; gap: 15px; margin-top: 20px; }
-        .footer-social a { 
-            color: var(--accent-gold); font-size: 20px; transition: 0.3s; text-decoration: none; 
-            width: 50px; height: 50px; border: 1px solid rgba(181, 148, 97, 0.2);
-            display: flex; align-items: center; justify-content: center; border-radius: 50%;
-        }
-        .footer-social a:hover { background: var(--accent-gold); color: #fff; transform: translateY(-5px); }
-        
-        .copyright { text-align: center; margin-top: 60px; font-size: 10px; opacity: 0.4; letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
-
-        /* Mobile */
-        @media (max-width: 900px) { 
-            .about-wrap { flex-direction: column; text-align: center; } 
-            .about-text { text-align: center; }
-            .hero h1 { font-size: 45px; }
-            nav { padding: 15px 5%; }
-            nav .links { display: none; } /* Esconde links no mobile para limpar o topo */
-        }
-    </style>
-</head>
-<body>
-
-    <a href="https://wa.me/5561981682382" class="btn-flutuante" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <nav>
-        <a href="#" class="logo">HERICK ESTEVÃO</a>
-        <div class="links">
-            <a href="#sobre">A Mente</a>
-            <a href="#depoimentos">Feedback</a>
-            <a href="https://wa.me/5561981682382" target="_blank">Consultoria</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <p>Decodificando o Sucesso</p>
-        <h1>Herick Estevão</h1>
-    </header>
-
-    <section id="sobre">
-        <div class="about-wrap">
-            <div class="about-img">
-                <img src="{{ url_for('static', filename='imagens/foto_herick.png.jpeg') }}" alt="Herick Estevão">
-            </div>
-            <div class="about-text">
-                <span style="letter-spacing: 6px; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; font-size: 11px;">Image Strategist</span>
-                <h2>A Mente por Trás da Estratégia</h2>
-                <p>Especialista em decodificar a linguagem silenciosa do sucesso, Herick Estevão atua na intersecção entre a psicologia comportamental e o design de alto impacto. Sua missão é transformar sua imagem em um ativo financeiro estratégico.</p>
-                <div class="quote-box">
-                    "O detalhe é a fronteira final entre o comum e o extraordinário."
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="depoimentos">
-        <h2>Feedback de Autoridade</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"O Herick não entrega apenas um novo visual, ele entrega uma nova percepção de valor. Meu retorno sobre este investimento foi imediato em novos negócios."</p>
-                <strong>Ricardo Menezes — CEO & Investidor</strong>
-            </div>
-            <div class="testimonial-card">
-                <p>"Estratégia impecável. Minha imagem agora comunica a autoridade que meu cargo exige, sem dizer uma única palavra. Essencial para qualquer executivo."</p>
-                <strong>Ana Paula Silva — Diretora de Operações</strong>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contato">
-        <div class="footer-grid">
-            <div class="footer-item">
-                <h4>ATENDIMENTO</h4>
-                <p>Goiânia - GO, Brasil</p>
-                <p>Consultoria Presencial e Digital</p>
-                <p>+55 (61) 98168-2382</p>
-            </div>
-            <div class="footer-item">
-                <h4>CONECTE-SE</h4>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 DESENVOLVIDO POR WAGNER SARAFIM | UNI-CESUMAR
-        </div>
-    </footer>
-
-</body>
-</html>
+    }
+</style>
