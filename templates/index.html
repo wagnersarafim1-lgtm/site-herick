@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
 
-        /* Navegação Superior */
+        /* Navegação */
         nav {
             position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
             padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; 
@@ -27,69 +27,70 @@
         }
         .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 26px; color: var(--text-main); text-decoration: none; letter-spacing: 3px; }
         nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 35px; transition: 0.3s; }
+        nav .links a:hover { color: var(--accent-gold); }
 
-        /* --- ESTILO DOS BOTOES FLUTUANTES --- */
-        .float-box {
-            position: fixed; bottom: 30px; right: 30px;
-            display: flex; flex-direction: column; gap: 15px; z-index: 1000;
+        /* Botão Flutuante do WhatsApp COM BRILHO */
+        .btn-flutuante {
+            position: fixed; bottom: 40px; right: 40px;
+            width: 75px; height: 75px; background-color: #25d366;
+            color: #fff; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 34px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            z-index: 1000; transition: 0.3s; text-decoration: none !important;
+            animation: pulse 2s infinite;
+            overflow: hidden;
         }
 
-        .btn-float {
-            width: 65px; height: 65px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 30px; color: #fff; text-decoration: none !important;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            position: relative; overflow: hidden; transition: 0.3s;
-        }
-
-        /* WHATSAPP BRILHANDO */
-        .btn-w { background-color: #25d366; animation: pulso 2s infinite; }
-        .btn-w::after {
+        /* Efeito de Luz Passando */
+        .btn-flutuante::after {
             content: ""; position: absolute; top: -50%; left: -150%; width: 250%; height: 250%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
-            transform: rotate(45deg); animation: brilhoLuz 3s infinite;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+            transform: rotate(45deg); animation: shine 3s infinite;
         }
 
-        @keyframes brilhoLuz { 0% { left: -150%; } 100% { left: 150%; } }
-        @keyframes pulso { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
-        .btn-e { background-color: var(--accent-gold); }
-        .btn-float:hover { transform: scale(1.1); }
+        @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
         /* Seção Sobre */
         #sobre { padding: 160px 8% 100px; background: #fff; min-height: 100vh; display: flex; align-items: flex-start; }
         .about-wrap { display: flex; align-items: flex-start; justify-content: center; gap: 100px; max-width: 1400px; margin: 0 auto; }
-        .about-img img { width: 100%; max-width: 500px; border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+        .about-img { flex: 1; text-align: right; }
+        .about-img img { width: 100%; max-width: 500px; border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); transition: 0.5s; }
         
         .about-text { flex: 1.2; }
         .tag { letter-spacing: 10px; color: var(--accent-gold); font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 30px; }
         .about-text h2 { font-family: 'Playfair Display'; font-size: 58px; margin-bottom: 35px; line-height: 1.1; color: var(--text-main); }
-        .about-text p { font-size: 20px; margin-bottom: 30px; color: #444; text-align: justify; }
+        .about-text p { font-size: 20px; margin-bottom: 30px; color: #444; text-align: justify; font-weight: 400;}
 
-        .quote-box { margin-top: 50px; padding: 40px; border-left: 5px solid var(--accent-gold); background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 24px; }
+        .quote-box { margin-top: 50px; padding: 40px; border-left: 5px solid var(--accent-gold); background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 24px; color: var(--text-main); }
 
-        /* Depoimentos e Rodapé */
+        /* Depoimentos */
         #depoimentos { padding: 150px 8%; text-align: center; background: var(--bg-site); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; }
-        .testimonial-card { background: #fff; padding: 60px; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
+        #depoimentos h2 { font-family: 'Playfair Display'; font-size: 42px; margin-bottom: 80px; letter-spacing: 2px; text-transform: uppercase;}
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; max-width: 1300px; margin: 0 auto; }
+        .testimonial-card { background: #fff; padding: 60px; border-radius: 4px; text-align: left; box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
 
+        /* Rodapé */
         footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; }
-        .footer-social a { color: var(--accent-gold); font-size: 30px; text-decoration: none; width: 65px; height: 65px; border: 1px solid rgba(181, 148, 97, 0.3); display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; }
+        .footer-item h4 { color: var(--accent-gold); font-family: 'Playfair Display'; margin-bottom: 30px; letter-spacing: 2px; font-size: 22px; text-transform: uppercase;}
+        .footer-social { display: flex; gap: 30px; margin-top: 35px; }
+        .footer-social a { color: var(--accent-gold); font-size: 30px; transition: 0.3s; text-decoration: none; width: 65px; height: 65px; border: 1px solid rgba(181, 148, 97, 0.3); display: flex; align-items: center; justify-content: center; border-radius: 50%; }
 
-        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .about-img { text-align: center; } }
+        @media (max-width: 1000px) { 
+            .about-wrap { flex-direction: column; text-align: center; gap: 50px; } 
+            .about-img { text-align: center; } 
+            .about-text h2 { font-size: 45px; }
+            #sobre { padding-top: 180px; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="float-box">
-        <a href="mailto:Erikstylist@gmail.com" class="btn-float btn-e" title="Enviar E-mail">
-            <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://wa.me/5561981682382" class="btn-float btn-w" target="_blank" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+    <a href="https://wa.me/5561981682382" class="btn-flutuante" target="_blank" title="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <nav>
         <a href="#" class="logo">ERIK ESTEVÃO</a>
@@ -103,7 +104,7 @@
     <section id="sobre">
         <div class="about-wrap">
             <div class="about-img">
-                <img src="static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
+                <img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
             </div>
             <div class="about-text">
                 <span class="tag">Image & Digital Strategist</span>
@@ -115,11 +116,11 @@
     </section>
 
     <section id="depoimentos">
-        <h2 style="font-family: 'Playfair Display'; font-size: 42px; margin-bottom: 80px;">Feedback de Autoridade</h2>
+        <h2>Feedback de Autoridade</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                <p>"O Erik elevou meu posicionamento a um nível extraordinário."</p>
-                <strong style="display:block; margin-top:20px;">Ricardo Menezes — CEO</strong>
+                <p>"O Erik elevou meu posicionamento a um nível extraordinário. O retorno foi imediato."</p>
+                <strong>Ricardo Menezes — CEO</strong>
             </div>
         </div>
     </section>
@@ -127,12 +128,23 @@
     <footer id="contato">
         <div class="footer-grid">
             <div class="footer-item">
-                <h4 style="color:var(--accent-gold); margin-bottom:20px;">CONTATO</h4>
-                <p>Goiânia - GO | +55 (61) 98168-2382</p>
-                <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none;">Erikstylist@gmail.com</a></p>
+                <h4>CONTATO</h4>
+                <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 10px;"></i> Goiânia - GO, Brasil</p>
+                <p><i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 10px;"></i> +55 (61) 98168-2382</p>
+                <p><i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 10px;"></i> <a href="mailto:Erikstylist@gmail.com" style="color: #fff; text-decoration: none;">Erikstylist@gmail.com</a></p>
+            </div>
+            <div class="footer-item">
+                <h4>REDES SOCIAIS</h4>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:Erikstylist@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 80px; font-size: 12px; opacity: 0.3;">&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
+        <div class="copyright">
+            &copy; 2026 DEVELOPED BY WAGNER SARAFIM | TODOS OS DIREITOS RESERVADOS
+        </div>
     </footer>
 
 </body>
