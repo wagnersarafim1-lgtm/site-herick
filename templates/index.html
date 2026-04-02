@@ -44,9 +44,9 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Seção Hero - DIMINUÍDA para não sobrepor */
+        /* Seção Hero - AJUSTADA (Menor e com o nome certo) */
         .hero {
-            height: 70vh; /* Reduzi de 100vh para 70vh */
+            height: 60vh; /* Altura reduzida para não achatar o site */
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('static/imagens/foto_herick3.png.jpeg');
             background-size: cover;
             background-position: center 20%;
@@ -90,4 +90,94 @@
         /* Rodapé */
         footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; }
-        .footer-social { display: flex; gap: 25px;
+        .footer-social { display: flex; gap: 25px; margin-top: 30px; }
+        .footer-social a { 
+            color: var(--accent-gold); font-size: 28px; transition: 0.3s; text-decoration: none; 
+            width: 60px; height: 60px; border: 1px solid rgba(181, 148, 97, 0.3);
+            display: flex; align-items: center; justify-content: center; border-radius: 50%;
+        }
+        .footer-social a:hover { background: var(--accent-gold); color: #fff; transform: translateY(-10px); }
+        .copyright { text-align: center; margin-top: 80px; font-size: 11px; opacity: 0.3; letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; }
+
+        @media (max-width: 1000px) { 
+            .about-wrap { flex-direction: column; text-align: center; } 
+            .hero h1 { font-size: 42px; }
+            .about-img { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/5561981682382" class="btn-flutuante" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav>
+        <a href="#" class="logo">ERIK ESTEVÃO</a>
+        <div class="links">
+            <a href="#sobre">Estrategista</a>
+            <a href="#depoimentos">Feedback</a>
+            <a href="#contato">Consultoria</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <p>Decodificando o Sucesso</p>
+        <h1>Erik Estevão</h1>
+    </header>
+
+    <section id="sobre">
+        <div class="about-wrap">
+            <div class="about-img">
+                <img src="static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
+            </div>
+            <div class="about-text">
+                <span class="tag">Image & Digital Strategist</span>
+                <h2>A Mente por Trás da Estratégia</h2>
+                <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão atua na intersecção entre a psicologia comportamental e o design de alto impacto. </p>
+                <p>Sua metodologia transforma a imagem de executivos e empresas de alto padrão em um ativo estratégico de autoridade imediata.</p>
+                <div class="quote-box">
+                    "O detalhe é a fronteira final entre o comum e o extraordinário."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos">
+        <h2 style="font-family: 'Playfair Display'; font-size: 38px;">Feedback de Autoridade</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"O Erik elevou meu posicionamento a um nível extraordinário. O retorno foi imediato."</p>
+                <strong>Ricardo Menezes — CEO</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"Estratégia impecável. Minha imagem comunica autoridade absoluta."</p>
+                <strong>Ana Paula Silva — Diretora</strong>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="footer-grid">
+            <div class="footer-item">
+                <h4>CONTATO</h4>
+                <p>Goiânia - GO, Brasil</p>
+                <p>+55 (61) 98168-2382</p>
+                <p>Erikstylist@gmail.com</p>
+            </div>
+            <div class="footer-item">
+                <h4>REDES SOCIAIS</h4>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 DEVELOPED BY WAGNER SARAFIM | TODOS OS DIREITOS RESERVADOS
+        </div>
+    </footer>
+
+</body>
+</html>
