@@ -45,7 +45,7 @@
         @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* LAYOUT ORIGINAL ALTO PADRÃO */
+        /* SEÇÃO SOBRE ORIGINAL */
         #sobre { padding: 160px 8% 100px; background: #fff; min-height: 100vh; display: flex; align-items: flex-start; }
         .about-wrap { display: flex; align-items: flex-start; justify-content: center; gap: 100px; max-width: 1400px; margin: 0 auto; }
         .about-img img { width: 100%; max-width: 500px; border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
@@ -53,7 +53,14 @@
         .about-text p { font-size: 20px; color: #444; text-align: justify; margin-bottom: 30px; }
         .quote-box { padding: 40px; border-left: 5px solid var(--accent-gold); background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 24px; }
 
-        /* RODAPÉ COM BOTÕES NA HORIZONTAL */
+        /* DEPOIMENTOS RESTAURADOS (OS DOIS) */
+        #depoimentos { padding: 150px 8%; text-align: center; background: var(--bg-site); }
+        #depoimentos h2 { font-family: 'Playfair Display'; font-size: 42px; margin-bottom: 80px; letter-spacing: 2px; text-transform: uppercase;}
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; max-width: 1300px; margin: 0 auto; }
+        .testimonial-card { background: #fff; padding: 60px; border-radius: 4px; text-align: left; box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
+        .testimonial-card p { font-size: 18px; margin-bottom: 25px;}
+
+        /* RODAPÉ COM BOTOES HORIZONTAIS */
         footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; }
         .footer-item h4 { color: var(--accent-gold); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
@@ -66,7 +73,7 @@
         }
         .footer-social a:hover { background: var(--accent-gold); color: #fff; transform: translateY(-5px); }
 
-        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .footer-social { justify-content: center; } }
+        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .footer-social { justify-content: center; } .testimonial-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -77,19 +84,34 @@
         <a href="#" class="logo">ERIK ESTEVÃO</a>
         <div class="links">
             <a href="#sobre" style="text-decoration:none; color:var(--text-main); font-weight:700; text-transform:uppercase; font-size:11px; margin-left:35px;">Estrategista</a>
+            <a href="#depoimentos" style="text-decoration:none; color:var(--text-main); font-weight:700; text-transform:uppercase; font-size:11px; margin-left:35px;">Feedback</a>
         </div>
     </nav>
 
     <section id="sobre">
         <div class="about-wrap">
             <div class="about-img">
-                <img src="{{ url_for('static', filename='imagens/foto_herick.png.jpeg') }}" alt="Erik Estevão">
+                <img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
             </div>
             <div class="about-text">
-                <span style="letter-spacing: 12px; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;">Image Strategist</span>
+                <span style="letter-spacing: 12px; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;">Image & Digital Strategist</span>
                 <h2>A Mente por Trás da Estratégia</h2>
                 <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
                 <div class="quote-box">"O detalhe é a fronteira final entre o comum e o extraordinário."</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos">
+        <h2>Feedback de Autoridade</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"O Erik elevou meu posicionamento a um nível extraordinário. O retorno foi imediato."</p>
+                <strong>Ricardo Menezes — CEO</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"Estratégia impecável. Minha imagem comunica autoridade absoluta."</p>
+                <strong>Ana Paula Silva — Diretora</strong>
             </div>
         </div>
     </section>
@@ -102,9 +124,9 @@
                 <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none;">Erikstylist@gmail.com</a></p>
                 
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/stylisterikestevao" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5561981682382" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:Erikstylist@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
