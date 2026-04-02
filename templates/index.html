@@ -16,7 +16,7 @@
         nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 20px 8%; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
         .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 24px; text-decoration: none; color: var(--dark); letter-spacing: 2px; }
 
-        /* HERO - Foto do Rosto em escala proporcional */
+        /* HERO - Foto do Rosto Proporcional (Sem achatar) */
         .hero {
             height: 55vh; 
             margin-top: 70px;
@@ -36,7 +36,8 @@
 
         footer { background: #111; color: #fff; padding: 80px 8% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
-        .footer-social a { color: var(--gold); font-size: 30px; margin: 0 15px; border: 1px solid rgba(181, 148, 97, 0.3); width: 60px; height: 60px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; }
+        .footer-social a { color: var(--gold); font-size: 30px; margin: 0 15px; border: 1px solid rgba(181, 148, 97, 0.3); width: 60px; height: 60px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; transition: 0.3s; }
+        .footer-social a:hover { background: var(--gold); color: #fff; }
 
         @media (max-width: 900px) { .about-wrap { flex-direction: column; text-align: center; } }
     </style>
@@ -68,7 +69,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-item">
-                <h4 style="color:var(--gold); margin-bottom: 15px;">CONTATO</h4>
+                <h4 style="color:var(--gold); margin-bottom: 15px; letter-spacing: 2px;">CONTATO</h4>
                 <p>+55 (61) 98168-2382</p>
                 <p><a href="mailto:Erikstylist@gmail.com" style="color: #fff; text-decoration: none;">Erikstylist@gmail.com</a></p>
             </div>
@@ -82,7 +83,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5561981682382" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; text-decoration: none;"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/5561981682382" style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
