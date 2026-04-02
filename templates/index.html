@@ -13,10 +13,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--text); line-height: 1.8; overflow-x: hidden; }
 
+        /* Menu de Luxo */
         nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(181,148,97,0.1); }
         .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 28px; text-decoration: none; color: var(--text); letter-spacing: 3px; }
 
-        /* Botão WhatsApp Brilhante (Flutuante) */
+        /* WhatsApp com Brilho Real */
         .btn-whats-float {
             position: fixed; bottom: 40px; right: 40px; width: 75px; height: 75px; background: #25d366;
             color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -31,18 +32,18 @@
         @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* Seção Sobre (A Imponente) */
+        /* Seção Sobre (Impacto Máximo) */
         #sobre { padding: 180px 8% 120px; background: #fff; min-height: 100vh; display: flex; align-items: center; }
-        .about-wrap { display: flex; gap: 100px; max-width: 1400px; margin: 0 auto; align-items: center; }
-        .about-img img { width: 100%; max-width: 550px; border-radius: 4px; box-shadow: 0 35px 70px rgba(0,0,0,0.18); }
-        .about-text h2 { font-family: 'Playfair Display'; font-size: clamp(40px, 6vw, 65px); margin-bottom: 40px; line-height: 1.1; }
-        .about-text p { font-size: 22px; color: #444; text-align: justify; margin-bottom: 30px; }
-        .quote-box { margin-top: 60px; padding: 45px; border-left: 6px solid var(--gold); background: var(--bg); font-family: 'Playfair Display'; font-style: italic; font-size: 28px; }
+        .about-wrap { display: flex; gap: 80px; max-width: 1400px; margin: 0 auto; align-items: center; }
+        .about-img img { width: 100%; max-width: 520px; border-radius: 4px; box-shadow: 0 35px 70px rgba(0,0,0,0.18); }
+        .about-text h2 { font-family: 'Playfair Display'; font-size: 62px; margin-bottom: 40px; line-height: 1.1; }
+        .about-text p { font-size: 21px; color: #444; text-align: justify; margin-bottom: 30px; }
+        .quote-box { margin-top: 50px; padding: 45px; border-left: 6px solid var(--gold); background: var(--bg); font-family: 'Playfair Display'; font-style: italic; font-size: 26px; }
 
-        /* Grid de Depoimentos (4 Itens) */
-        #depoimentos { padding: 150px 8%; text-align: center; background: var(--bg); }
+        /* Feedback Grid (4 Depoimentos) */
+        #depoimentos { padding: 120px 8%; text-align: center; background: var(--bg); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1300px; margin: 60px auto 0; }
-        .testimonial-card { background: #fff; padding: 60px; border-radius: 4px; text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .testimonial-card { background: #fff; padding: 50px; border-radius: 4px; text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
 
         /* Rodapé Horizontal */
         footer { background: var(--dark); color: #fff; padding: 100px 8% 50px; }
@@ -50,7 +51,7 @@
         .footer-social a { color: var(--gold); font-size: 30px; width: 65px; height: 65px; border: 1px solid rgba(181,148,97,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
         .footer-social a:hover { background: var(--gold); color: #fff; transform: translateY(-8px); }
 
-        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .testimonial-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 1100px) { .about-wrap { flex-direction: column; text-align: center; } .about-text h2 { font-size: 48px; } .testimonial-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -63,7 +64,7 @@
         <div class="about-wrap">
             <div class="about-img"><img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão"></div>
             <div class="about-text">
-                <span style="letter-spacing: 12px; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 13px; display: block; margin-bottom: 25px;">Image Strategist</span>
+                <span style="letter-spacing: 12px; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;">Image Strategist</span>
                 <h2>A Mente por Trás da Estratégia</h2>
                 <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
                 <div class="quote-box">"O detalhe é a fronteira final entre o comum e o extraordinário."</div>
@@ -72,22 +73,22 @@
     </section>
 
     <section id="depoimentos">
-        <h2 style="font-family: 'Playfair Display'; font-size: 48px; text-transform: uppercase;">Feedback de Autoridade</h2>
+        <h2 style="font-family: 'Playfair Display'; font-size: 45px; text-transform: uppercase;">Feedback de Autoridade</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"O Erik elevou meu posicionamento a um nível extraordinário."</p>
+                <p style="font-style: italic; font-size: 19px;">"O Erik elevou meu posicionamento a um nível extraordinário. O retorno foi imediato."</p>
                 <strong style="color:var(--gold); display:block; margin-top:15px;">Ricardo Menezes — CEO</strong>
             </div>
             <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"Estratégia impecável. Minha imagem comunica autoridade absoluta."</p>
+                <p style="font-style: italic; font-size: 19px;">"Estratégia impecável. Minha imagem comunica autoridade absoluta em cada detalhe."</p>
                 <strong style="color:var(--gold); display:block; margin-top:15px;">Ana Paula Silva — Diretora</strong>
             </div>
             <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"Um divisor de águas. O design estratégico abriu portas exclusivas."</p>
+                <p style="font-style: italic; font-size: 19px;">"Um divisor de águas na minha carreira. O design estratégico me abriu portas exclusivas."</p>
                 <strong style="color:var(--gold); display:block; margin-top:15px;">Marcos Vinícius — Advogado</strong>
             </div>
             <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"Profissionalismo raro. Ele entende o mercado de luxo como ninguém."</p>
+                <p style="font-style: italic; font-size: 19px;">"Profissionalismo raro. Ele entende o mercado de luxo como ninguém no Brasil."</p>
                 <strong style="color:var(--gold); display:block; margin-top:15px;">Clara Holanda — Consultora</strong>
             </div>
         </div>
