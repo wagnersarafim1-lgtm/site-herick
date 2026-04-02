@@ -9,33 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        :root {
-            --bg-site: #f2ede4;
-            --text-main: #2d2621;
-            --accent-gold: #b59461;
-            --footer-bg: #111111;
-        }
-
+        :root { --bg: #f2ede4; --text: #2d2621; --gold: #b59461; --dark: #111111; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
+        body { background-color: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--text); line-height: 1.8; overflow-x: hidden; }
 
-        /* Menu */
-        nav {
-            position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
-            padding: 30px 8%; z-index: 100; display: flex; justify-content: space-between; 
-            align-items: center; border-bottom: 1px solid rgba(181, 148, 97, 0.1);
-        }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 28px; color: var(--text-main); text-decoration: none; letter-spacing: 4px; }
-        nav .links a { text-decoration: none; color: var(--text-main); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 35px; }
+        nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 28px; text-decoration: none; color: var(--text); letter-spacing: 3px; }
 
         /* WhatsApp Brilhante */
         .btn-whats-float {
-            position: fixed; bottom: 40px; right: 40px;
-            width: 75px; height: 75px; background-color: #25d366;
-            color: #fff; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center;
-            font-size: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            z-index: 1000; text-decoration: none;
+            position: fixed; bottom: 40px; right: 40px; width: 75px; height: 75px; background: #25d366;
+            color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none;
             animation: pulse 2s infinite; overflow: hidden;
         }
         .btn-whats-float::after {
@@ -48,106 +33,74 @@
 
         /* Sobre */
         #sobre { padding: 180px 8% 120px; background: #fff; min-height: 100vh; display: flex; align-items: center; }
-        .about-wrap { display: flex; align-items: center; justify-content: center; gap: 100px; max-width: 1400px; margin: 0 auto; }
-        .about-img img { width: 100%; max-width: 550px; border-radius: 4px; box-shadow: 0 35px 70px rgba(0,0,0,0.18); }
-        .about-text h2 { font-family: 'Playfair Display'; font-size: 65px; margin-bottom: 40px; line-height: 1.1; }
-        .about-text p { font-size: 22px; color: #444; text-align: justify; margin-bottom: 30px; }
-        .quote-box { margin-top: 60px; padding: 50px; border-left: 6px solid var(--accent-gold); background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 28px; }
+        .about-wrap { display: flex; gap: 100px; max-width: 1400px; margin: 0 auto; align-items: center; }
+        .about-img img { width: 100%; max-width: 520px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+        .about-text h2 { font-family: 'Playfair Display'; font-size: 62px; margin-bottom: 35px; line-height: 1.1; }
+        .quote-box { margin-top: 50px; padding: 40px; border-left: 5px solid var(--gold); background: var(--bg); font-family: 'Playfair Display'; font-style: italic; font-size: 26px; }
 
-        /* --- SEÇÃO FEEDBACK COM 4 ITENS --- */
-        #depoimentos { padding: 150px 8%; text-align: center; background: var(--bg-site); }
-        #depoimentos h2 { font-family: 'Playfair Display'; font-size: 48px; margin-bottom: 80px; text-transform: uppercase; letter-spacing: 3px;}
-        .testimonial-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-            gap: 40px; 
-            max-width: 1300px; 
-            margin: 0 auto; 
-        }
-        .testimonial-card { background: #fff; padding: 50px; border-radius: 4px; text-align: left; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .testimonial-card p { font-size: 18px; font-style: italic; margin-bottom: 20px; color: #555; }
-        .testimonial-card strong { color: var(--accent-gold); font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        /* Feedback 4 itens */
+        #depoimentos { padding: 120px 8%; text-align: center; background: var(--bg); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1300px; margin: 60px auto 0; }
+        .testimonial-card { background: #fff; padding: 50px; border-radius: 4px; text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
 
-        /* Rodapé */
-        footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
-        .footer-social { display: flex; flex-direction: row; gap: 25px; margin-top: 35px; }
-        .footer-social a { 
-            color: var(--accent-gold); font-size: 32px; text-decoration: none; 
-            width: 70px; height: 70px; border: 1px solid rgba(181, 148, 97, 0.3);
-            display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s;
-        }
+        footer { background: var(--dark); color: #fff; padding: 80px 8%; }
+        .footer-social { display: flex; gap: 20px; margin-top: 30px; }
+        .footer-social a { color: var(--gold); font-size: 30px; width: 65px; height: 65px; border: 1px solid rgba(181, 148, 97, 0.3); display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; }
 
-        @media (max-width: 1100px) { 
-            .about-wrap { flex-direction: column; text-align: center; } 
-            .testimonial-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .testimonial-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <a href="https://wa.me/5561981682382" class="btn-whats-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <nav>
-        <a href="#" class="logo">ERIK ESTEVÃO</a>
-        <div class="links">
-            <a href="#sobre">Estrategista</a>
-            <a href="#depoimentos">Feedback</a>
-            <a href="#contato">Consultoria</a>
-        </div>
-    </nav>
+    <nav><a href="#" class="logo">ERIK ESTEVÃO</a></nav>
 
     <section id="sobre">
         <div class="about-wrap">
-            <div class="about-img">
-                <img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
-            </div>
+            <div class="about-img"><img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão"></div>
             <div class="about-text">
-                <span style="letter-spacing: 12px; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; font-size: 13px; display: block; margin-bottom: 25px;">Image & Digital Strategist</span>
+                <span style="letter-spacing: 12px; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 20px;">Image Strategist</span>
                 <h2>A Mente por Trás da Estratégia</h2>
-                <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta através do design de alto impacto.</p>
+                <p style="font-size: 21px; color: #444;">Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
                 <div class="quote-box">"O detalhe é a fronteira final entre o comum e o extraordinário."</div>
             </div>
         </div>
     </section>
 
     <section id="depoimentos">
-        <h2>Feedback de Autoridade</h2>
+        <h2 style="font-family: 'Playfair Display'; font-size: 45px; text-transform: uppercase;">Feedback de Autoridade</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                <p>"O Erik elevou meu posicionamento a um nível extraordinário. O retorno foi imediato."</p>
-                <strong>Ricardo Menezes — CEO</strong>
+                <p style="font-style: italic;">"O Erik elevou meu posicionamento a um nível extraordinário."</p>
+                <strong style="color: var(--gold); display: block; margin-top: 15px;">Ricardo Menezes — CEO</strong>
             </div>
             <div class="testimonial-card">
-                <p>"Estratégia impecável. Minha imagem comunica autoridade absoluta em cada detalhe."</p>
-                <strong>Ana Paula Silva — Diretora</strong>
+                <p style="font-style: italic;">"Estratégia impecável. Minha imagem comunica autoridade absoluta."</p>
+                <strong style="color: var(--gold); display: block; margin-top: 15px;">Ana Paula Silva — Diretora</strong>
             </div>
             <div class="testimonial-card">
-                <p>"Um divisor de águas na minha carreira. O design estratégico me abriu portas exclusivas."</p>
-                <strong>Marcos Vinícius — Advogado Senior</strong>
+                <p style="font-style: italic;">"Um divisor de águas. O design estratégico abriu portas exclusivas."</p>
+                <strong style="color: var(--gold); display: block; margin-top: 15px;">Marcos Vinícius — Advogado</strong>
             </div>
             <div class="testimonial-card">
-                <p>"Profissionalismo raro. Ele entende o mercado de luxo como ninguém no Brasil."</p>
-                <strong>Clara Holanda — Consultora de Negócios</strong>
+                <p style="font-style: italic;">"Profissionalismo raro. Ele entende o mercado de luxo como ninguém."</p>
+                <strong style="color: var(--gold); display: block; margin-top: 15px;">Clara Holanda — Consultora</strong>
             </div>
         </div>
     </section>
 
-    <footer id="contato">
-        <div class="footer-grid">
-            <div class="footer-item">
-                <h4 style="color:var(--accent-gold);">CONTATO</h4>
-                <p>Goiânia - GO | +55 (61) 98168-2382</p>
-                <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none;">Erikstylist@gmail.com</a></p>
-                
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
+    <footer>
+        <h4 style="color: var(--gold); letter-spacing: 2px;">CONTATO</h4>
+        <p>Goiânia - GO | +55 (61) 98168-2382</p>
+        <p><a href="mailto:Erikstylist@gmail.com" style="color: #fff; text-decoration: none;">Erikstylist@gmail.com</a></p>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p style="text-align: center; margin-top: 100px; font-size: 13px; opacity: 0.3;">&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
     </footer>
 
 </body>
 </html>
+           
