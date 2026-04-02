@@ -4,106 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erik Estevão | Luxury Image Strategy</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
         :root { --bg: #f2ede4; --text: #2d2621; --gold: #b59461; --dark: #111111; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--text); line-height: 1.8; overflow-x: hidden; }
-
-        /* Menu de Luxo */
-        nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(181,148,97,0.1); }
+        body { background-color: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--text); line-height: 1.8; }
+        nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 25px 8%; z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; }
         .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 28px; text-decoration: none; color: var(--text); letter-spacing: 3px; }
-
-        /* WhatsApp com Brilho Real */
-        .btn-whats-float {
-            position: fixed; bottom: 40px; right: 40px; width: 75px; height: 75px; background: #25d366;
-            color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none;
-            animation: pulse 2s infinite; overflow: hidden;
-        }
-        .btn-whats-float::after {
-            content: ""; position: absolute; top: -50%; left: -150%; width: 250%; height: 250%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            transform: rotate(45deg); animation: shine 3s infinite;
-        }
+        
+        .btn-whats { position: fixed; bottom: 40px; right: 40px; width: 75px; height: 75px; background: #25d366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; z-index: 1000; animation: pulse 2s infinite; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .btn-whats::after { content: ""; position: absolute; top: -50%; left: -150%; width: 250%; height: 250%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent); transform: rotate(45deg); animation: shine 3s infinite; }
         @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* Seção Sobre (Impacto Máximo) */
         #sobre { padding: 180px 8% 120px; background: #fff; min-height: 100vh; display: flex; align-items: center; }
         .about-wrap { display: flex; gap: 80px; max-width: 1400px; margin: 0 auto; align-items: center; }
         .about-img img { width: 100%; max-width: 520px; border-radius: 4px; box-shadow: 0 35px 70px rgba(0,0,0,0.18); }
         .about-text h2 { font-family: 'Playfair Display'; font-size: 62px; margin-bottom: 40px; line-height: 1.1; }
-        .about-text p { font-size: 21px; color: #444; text-align: justify; margin-bottom: 30px; }
-        .quote-box { margin-top: 50px; padding: 45px; border-left: 6px solid var(--gold); background: var(--bg); font-family: 'Playfair Display'; font-style: italic; font-size: 26px; }
 
-        /* Feedback Grid (4 Depoimentos) */
         #depoimentos { padding: 120px 8%; text-align: center; background: var(--bg); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1300px; margin: 60px auto 0; }
-        .testimonial-card { background: #fff; padding: 50px; border-radius: 4px; text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .grid-f { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1300px; margin: 60px auto 0; }
+        .card-f { background: #fff; padding: 50px; border-radius: 4px; text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
 
-        /* Rodapé Horizontal */
         footer { background: var(--dark); color: #fff; padding: 100px 8% 50px; }
-        .footer-social { display: flex; flex-direction: row; gap: 25px; margin-top: 35px; }
-        .footer-social a { color: var(--gold); font-size: 30px; width: 65px; height: 65px; border: 1px solid rgba(181,148,97,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
-        .footer-social a:hover { background: var(--gold); color: #fff; transform: translateY(-8px); }
-
-        @media (max-width: 1100px) { .about-wrap { flex-direction: column; text-align: center; } .about-text h2 { font-size: 48px; } .testimonial-grid { grid-template-columns: 1fr; } }
+        .social-h { display: flex; gap: 25px; margin-top: 35px; }
+        .social-h a { color: var(--gold); font-size: 30px; width: 65px; height: 65px; border: 1px solid rgba(181, 148, 97, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; }
     </style>
 </head>
 <body>
-
-    <a href="https://wa.me/5561981682382" class="btn-whats-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
+    <a href="https://wa.me/5561981682382" class="btn-whats" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <nav><a href="#" class="logo">ERIK ESTEVÃO</a></nav>
-
     <section id="sobre">
         <div class="about-wrap">
             <div class="about-img"><img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão"></div>
             <div class="about-text">
                 <span style="letter-spacing: 12px; color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;">Image Strategist</span>
                 <h2>A Mente por Trás da Estratégia</h2>
-                <p>Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
-                <div class="quote-box">"O detalhe é a fronteira final entre o comum e o extraordinário."</div>
+                <p style="font-size: 21px; color: #444;">Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
             </div>
         </div>
     </section>
-
     <section id="depoimentos">
-        <h2 style="font-family: 'Playfair Display'; font-size: 45px; text-transform: uppercase;">Feedback de Autoridade</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"O Erik elevou meu posicionamento a um nível extraordinário. O retorno foi imediato."</p>
-                <strong style="color:var(--gold); display:block; margin-top:15px;">Ricardo Menezes — CEO</strong>
-            </div>
-            <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"Estratégia impecável. Minha imagem comunica autoridade absoluta em cada detalhe."</p>
-                <strong style="color:var(--gold); display:block; margin-top:15px;">Ana Paula Silva — Diretora</strong>
-            </div>
-            <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"Um divisor de águas na minha carreira. O design estratégico me abriu portas exclusivas."</p>
-                <strong style="color:var(--gold); display:block; margin-top:15px;">Marcos Vinícius — Advogado</strong>
-            </div>
-            <div class="testimonial-card">
-                <p style="font-style: italic; font-size: 19px;">"Profissionalismo raro. Ele entende o mercado de luxo como ninguém no Brasil."</p>
-                <strong style="color:var(--gold); display:block; margin-top:15px;">Clara Holanda — Consultora</strong>
-            </div>
+        <h2 style="font-family: 'Playfair Display'; font-size: 45px;">Feedback de Autoridade</h2>
+        <div class="grid-f">
+            <div class="card-f"><p>"O Erik elevou meu posicionamento."</p><strong>Ricardo Menezes — CEO</strong></div>
+            <div class="card-f"><p>"Estratégia impecável."</p><strong>Ana Paula Silva — Diretora</strong></div>
+            <div class="card-f"><p>"Um divisor de águas."</p><strong>Marcos Vinícius — Advogado</strong></div>
+            <div class="card-f"><p>"Profissionalismo raro."</p><strong>Clara Holanda — Consultora</strong></div>
         </div>
     </section>
-
     <footer>
-        <h4 style="color:var(--gold); font-size: 22px; margin-bottom: 25px;">CONTATO</h4>
+        <h4>CONTATO</h4>
         <p>Goiânia - GO | +55 (61) 98168-2382</p>
-        <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none;">Erikstylist@gmail.com</a></p>
-        <div class="footer-social">
+        <p><a href="mailto:Erikstylist@gmail.com" style="color: #fff; text-decoration: none;">Erikstylist@gmail.com</a></p>
+        <div class="social-h">
             <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </footer>
-
 </body>
 </html>
