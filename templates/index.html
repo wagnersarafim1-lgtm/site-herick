@@ -19,21 +19,23 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
 
+        /* Navegação */
         nav {
             position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
-            padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; 
+            padding: 20px 8%; z-index: 100; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid rgba(181, 148, 97, 0.1);
         }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 26px; color: var(--text-main); text-decoration: none; letter-spacing: 3px; }
-        nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 35px; transition: 0.3s; }
+        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 24px; color: var(--text-main); text-decoration: none; letter-spacing: 2px; }
+        nav .links a { text-decoration: none; color: var(--text-main); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 30px; }
 
+        /* Botão Flutuante */
         .btn-flutuante {
             position: fixed; bottom: 40px; right: 40px;
-            width: 70px; height: 70px; background-color: #25d366;
+            width: 60px; height: 60px; background-color: #25d366;
             color: #fff; border-radius: 50%; display: flex;
             align-items: center; justify-content: center;
-            font-size: 34px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            z-index: 1000; transition: 0.3s; text-decoration: none;
+            font-size: 30px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            z-index: 1000; text-decoration: none;
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
@@ -42,11 +44,12 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* HERO - Foto do Rosto em escala menor */
+        /* HERO - Foto de Rosto em escala menor e proporcional */
         .hero {
-            height: 60vh; 
+            height: 55vh; 
+            margin-top: 60px;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("{{ url_for('static', filename='imagens/foto_herick.png') }}");
-            background-size: contain; /* ESCALA MENOR: 'contain' não estica a foto */
+            background-size: contain; /* ESCALA MENOR: 'contain' garante que a foto apareça inteira sem achatar */
             background-repeat: no-repeat;
             background-position: center;
             background-color: #2d2621;
@@ -56,38 +59,16 @@
             align-items: center;
             text-align: center;
             color: #fff;
-            padding-top: 80px;
         }
-        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(40px, 8vw, 75px); text-transform: uppercase; color: #fff; margin-bottom: 10px; }
-        .hero p { letter-spacing: 10px; text-transform: uppercase; color: var(--accent-gold); font-weight: 700; font-size: 13px; }
+        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(35px, 8vw, 70px); text-transform: uppercase; color: #fff; margin-bottom: 10px; }
+        .hero p { letter-spacing: 8px; text-transform: uppercase; color: var(--accent-gold); font-weight: 700; font-size: 12px; }
 
-        #sobre { 
-            padding: 100px 8%; 
-            background: #fff; 
-            display: flex;
-            align-items: flex-start;
-        }
+        /* Seção Sobre (A Mente) */
+        #sobre { padding: 100px 8%; background: #fff; display: flex; align-items: center; }
         .about-wrap { display: flex; align-items: flex-start; justify-content: center; gap: 80px; max-width: 1400px; margin: 0 auto; }
         .about-img { flex: 1; text-align: right; }
-        .about-img img { width: 100%; max-width: 500px; border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+        .about-img img { width: 100%; max-width: 480px; border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
         
         .about-text { flex: 1.2; }
-        .tag { letter-spacing: 10px; color: var(--accent-gold); font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 30px; }
-        .about-text h2 { font-family: 'Playfair Display'; font-size: 58px; margin-bottom: 35px; line-height: 1.1; color: var(--text-main); }
-        .about-text p { font-size: 20px; margin-bottom: 30px; color: #444; text-align: justify; }
-
-        .quote-box { 
-            margin-top: 50px; padding: 40px; border-left: 5px solid var(--accent-gold); 
-            background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 24px; color: var(--text-main); 
-        }
-
-        footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; }
-        .footer-social { display: flex; gap: 30px; margin-top: 35px; }
-        .footer-social a { 
-            color: var(--accent-gold); font-size: 30px; transition: 0.3s; text-decoration: none; 
-            width: 65px; height: 65px; border: 1px solid rgba(181, 148, 97, 0.3);
-            display: flex; align-items: center; justify-content: center; border-radius: 50%;
-        }
-
-        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .about-img { text-align: center; } .about-text h2 { font
+        .about-text h2 { font-family: 'Playfair Display'; font-size: 48px; margin-bottom: 30px; line-height: 1.1; }
+        .about-text p { font-size: 19px; margin-bottom: 25px; color: #44
