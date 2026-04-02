@@ -20,38 +20,113 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
 
-        /* Navegação Fixa e Elegante */
+        /* Menu */
         nav {
             position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
-            padding: 20px 8%; z-index: 100; display: flex; justify-content: space-between; 
+            padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; 
             align-items: center; border-bottom: 1px solid rgba(181, 148, 97, 0.1);
         }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 24px; color: var(--text-main); text-decoration: none; letter-spacing: 2px; }
-        nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 30px; transition: 0.3s; }
-        nav .links a:hover { color: var(--accent-gold); }
+        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 26px; color: var(--text-main); text-decoration: none; letter-spacing: 3px; }
+        nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 35px; }
 
-        /* --- BOTÕES FLUTUANTES INTERATIVOS (NOVO) --- */
-        .float-contact-wrapper {
-            position: fixed; bottom: 30px; right: 30px;
-            display: flex; flex-direction: column; gap: 15px; z-index: 1000;
+        /* --- BOTÕES FLUTUANTES --- */
+        .float-wrapper {
+            position: fixed; bottom: 40px; right: 40px;
+            display: flex; flex-direction: column; gap: 20px; z-index: 1000;
         }
 
         .btn-float {
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 70px; height: 70px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 28px; color: #fff; text-decoration: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: 0.3s; 
+            font-size: 32px; color: #fff; text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
-        .btn-float:hover { transform: scale(1.1) translateY(-5px); }
 
-        .btn-whatsapp { background-color: var(--whatsapp-color); animation: pulseFloat 2s infinite; }
-        .btn-email { background-color: var(--accent-gold); }
-
-        @keyframes pulseFloat {
+        /* Botão WhatsApp BRILHANDO (Pulso) */
+        .btn-whatsapp { 
+            background-color: var(--whatsapp-color); 
+            animation: pulseGreen 2s infinite; 
+        }
+        
+        @keyframes pulseGreen {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Hero (Topo) Proporcional */
+        .btn-email { background-color: var(--accent-gold); }
+        .btn-float:hover { transform: scale(1.1); }
+
+        /* Seções */
+        .hero {
+            height: 60vh; margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/static/imagens/foto_herick.png");
+            background-size: cover; background-position: center 20%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center;
+        }
+        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(40px, 8vw, 75px); text-transform: uppercase; }
+
+        #sobre { padding: 120px 8%; background: #fff; display: flex; align-items: center; }
+        .about-wrap { display: flex; gap: 80px; max-width: 1400px; margin: 0 auto; align-items: flex-start; }
+        .about-img img { width: 100%; max-width: 500px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+        .about-text h2 { font-family: 'Playfair Display'; font-size: 58px; margin-bottom: 35px; line-height: 1.1; }
+
+        footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; }
+        
+        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .about-img { text-align: center; } }
+    </style>
+</head>
+<body>
+
+    <div class="float-wrapper">
+        <a href="https://wa.me/5561981682382" class="btn-float btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:Erikstylist@gmail.com" class="btn-float btn-email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <nav>
+        <a href="#" class="logo">ERIK ESTEVÃO</a>
+        <div class="links">
+            <a href="#sobre" style="text-decoration:none; color:var(--text-main); font-weight:700; text-transform:uppercase; font-size:11px;">Estrategista</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <p style="letter-spacing:10px; color:var(--accent-gold); text-transform:uppercase; font-weight:700; font-size:13px;">Decodificando o Sucesso</p>
+        <h1>Erik Estevão</h1>
+    </header>
+
+    <section id="sobre">
+        <div class="about-wrap">
+            <div class="about-img">
+                <img src="/static/imagens/foto_herick.png.jpeg" alt="Erik Estevão">
+            </div>
+            <div class="about-text">
+                <span style="letter-spacing:10px; color:var(--accent-gold); font-weight:700; text-transform:uppercase; font-size:12px;">Image Strategist</span>
+                <h2>A Mente por Trás da Estratégia</h2>
+                <p style="font-size:20px; color:#444; margin-bottom:30px; text-align:justify;">Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
+                <div style="padding:40px; border-left:5px solid var(--accent-gold); background:var(--bg-site); font-family:'Playfair Display'; font-style:italic; font-size:24px;">
+                    "O detalhe é a fronteira final entre o comum e o extraordinário."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-item">
+                <h4 style="color:var(--accent-gold); margin-bottom:20px;">CONTATO</h4>
+                <p>Goiânia - GO | +55 (61) 98168-2382</p>
+                <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none;">Erikstylist@gmail.com</a></p>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:80px; opacity:0.3; font-size:12px; letter-spacing:2px;">&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
+    </footer>
+
+</body>
+</html>
