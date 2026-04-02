@@ -4,77 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erik Estevão | Luxury Image Strategy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        :root { --bg: #f2ede4; --gold: #b59461; --dark: #2d2621; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--dark); line-height: 1.6; }
-        
-        nav { position: fixed; top: 0; width: 100%; background: #fff; padding: 20px 8%; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 22px; text-decoration: none; color: var(--dark); }
-
-        /* HERO - Ajustado para carregar a foto corretamente */
-        .hero { 
-            height: 55vh; 
-            margin-top: 60px;
-            /* O Flask vai injetar o caminho da imagem aqui */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("{{ url_for('static', filename='imagens/foto_herick.png') }}");
-            background-size: cover;
-            background-position: center 20%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center;
+        :root {
+            --bg-site: #f2ede4;
+            --text-main: #2d2621;
+            --accent-gold: #b59461;
+            --footer-bg: #111111;
         }
-        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(35px, 8vw, 65px); text-transform: uppercase; }
 
-        #sobre { padding: 80px 8%; background: #fff; }
-        .about-wrap { display: flex; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; }
-        .about-img img { width: 100%; max-width: 450px; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98);
+            padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid rgba(181, 148, 97, 0.1);
+        }
+        .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 26px; color: var(--text-main); text-decoration: none; letter-spacing: 3px; }
+        nav .links a { text-decoration: none; color: var(--text-main); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-left: 35px; transition: 0.3s; }
+
+        .btn-flutuante {
+            position: fixed; bottom: 40px; right: 40px;
+            width: 70px; height: 70px; background-color: #25d366;
+            color: #fff; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 34px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            z-index: 1000; transition: 0.3s; text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* HERO - Foto do Rosto em escala menor */
+        .hero {
+            height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("{{ url_for('static', filename='imagens/foto_herick.png') }}");
+            background-size: contain; /* ESCALA MENOR: 'contain' não estica a foto */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #2d2621;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(40px, 8vw, 75px); text-transform: uppercase; color: #fff; margin-bottom: 10px; }
+        .hero p { letter-spacing: 10px; text-transform: uppercase; color: var(--accent-gold); font-weight: 700; font-size: 13px; }
+
+        #sobre { 
+            padding: 100px 8%; 
+            background: #fff; 
+            display: flex;
+            align-items: flex-start;
+        }
+        .about-wrap { display: flex; align-items: flex-start; justify-content: center; gap: 80px; max-width: 1400px; margin: 0 auto; }
+        .about-img { flex: 1; text-align: right; }
+        .about-img img { width: 100%; max-width: 500px; border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
         
-        footer { background: #111; color: #fff; padding: 60px 8%; text-align: center; }
-        .footer-social { margin: 25px 0; }
-        .footer-social a { color: var(--gold); font-size: 30px; margin: 0 15px; text-decoration: none; border: 1px solid rgba(181, 148, 97, 0.3); width: 60px; height: 60px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; }
-        .footer-social a:hover { background: var(--gold); color: #fff; }
-        
-        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; }
+        .about-text { flex: 1.2; }
+        .tag { letter-spacing: 10px; color: var(--accent-gold); font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 30px; }
+        .about-text h2 { font-family: 'Playfair Display'; font-size: 58px; margin-bottom: 35px; line-height: 1.1; color: var(--text-main); }
+        .about-text p { font-size: 20px; margin-bottom: 30px; color: #444; text-align: justify; }
 
-        @media (max-width: 900px) { .about-wrap { flex-direction: column; text-align: center; } }
-    </style>
-</head>
-<body>
+        .quote-box { 
+            margin-top: 50px; padding: 40px; border-left: 5px solid var(--accent-gold); 
+            background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 24px; color: var(--text-main); 
+        }
 
-    <nav><a href="#" class="logo">ERIK ESTEVÃO</a></nav>
+        footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; }
+        .footer-social { display: flex; gap: 30px; margin-top: 35px; }
+        .footer-social a { 
+            color: var(--accent-gold); font-size: 30px; transition: 0.3s; text-decoration: none; 
+            width: 65px; height: 65px; border: 1px solid rgba(181, 148, 97, 0.3);
+            display: flex; align-items: center; justify-content: center; border-radius: 50%;
+        }
 
-    <header class="hero">
-        <h1>ERIK ESTEVÃO</h1>
-        <p style="letter-spacing: 6px; color: var(--gold); font-weight: 700; text-transform: uppercase;">Image Strategy</p>
-    </header>
-
-    <section id="sobre">
-        <div class="about-wrap">
-            <div class="about-img">
-                <img src="{{ url_for('static', filename='imagens/foto_herick.png.jpeg') }}" alt="Erik Estevão">
-            </div>
-            <div class="about-text">
-                <h2 style="font-family: 'Playfair Display'; font-size: 42px; margin-bottom: 20px;">A Mente por Trás da Estratégia</h2>
-                <p style="font-size: 19px; color: #444;">Especialista em decodificar a linguagem silenciosa do sucesso, Erik Estevão transforma imagem em autoridade absoluta.</p>
-                <div style="margin-top: 30px; padding: 30px; border-left: 4px solid var(--gold); background: var(--bg); font-style: italic; font-size: 20px;">
-                    "O detalhe é a fronteira final entre o comum e o extraordinário."
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p style="font-size: 18px; margin-bottom: 10px;">Goiânia - GO | +55 (61) 98168-2382</p>
-        <div class="footer-social">
-            <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:Erikstylist@gmail.com" title="Enviar E-mail"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p><a href="mailto:Erikstylist@gmail.com" style="color: rgba(255,255,255,0.6); text-decoration: none;">Erikstylist@gmail.com</a></p>
-    </footer>
-
-    <a href="https://wa.me/5561981682382" class="whatsapp-fixo" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-</body>
-</html>
+        @media (max-width: 1000px) { .about-wrap { flex-direction: column; text-align: center; } .about-img { text-align: center; } .about-text h2 { font
