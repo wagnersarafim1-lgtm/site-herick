@@ -44,12 +44,13 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Seção Hero - AJUSTADA (Menor e com o nome certo) */
+        /* Seção Hero - AJUSTADA COM FOTO DO ROSTO MENOR */
         .hero {
             height: 60vh; /* Altura reduzida para não achatar o site */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('static/imagens/foto_herick3.png.jpeg');
+            /* Fundo degradê sutil sobre a foto do rosto em escala menor */
+            background: linear-gradient(rgba(45, 38, 33, 0.85), rgba(45, 38, 33, 0.95)), url('static/imagens/foto_herick.png');
             background-size: cover;
-            background-position: center 20%;
+            background-position: center 30%; /* Centraliza um pouco mais o rosto */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -57,9 +58,42 @@
             text-align: center;
             color: #fff;
             padding-top: 80px;
+            position: relative;
         }
-        .hero h1 { font-family: 'Playfair Display'; font-size: clamp(40px, 8vw, 75px); text-transform: uppercase; color: #fff; margin-bottom: 10px; }
-        .hero p { letter-spacing: 10px; text-transform: uppercase; color: var(--accent-gold); font-weight: 700; font-size: 13px; }
+        
+        /* Div para controlar a escala da imagem de fundo no Hero */
+        .hero-img-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-image: url('static/imagens/foto_herick.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Opacidade bem baixa para ficar sutil */
+            z-index: 1;
+        }
+
+        .hero h1 { 
+            font-family: 'Playfair Display'; 
+            font-size: clamp(40px, 8vw, 75px); 
+            text-transform: uppercase; 
+            color: #fff; 
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero p { 
+            letter-spacing: 10px; 
+            text-transform: uppercase; 
+            color: var(--accent-gold); 
+            font-weight: 700; 
+            font-size: 13px;
+            position: relative;
+            z-index: 2;
+        }
 
         /* Seção Sobre */
         #sobre { 
@@ -67,6 +101,8 @@
             background: #fff; 
             display: flex;
             align-items: center;
+            position: relative;
+            z-index: 5; /* Garante que fique sobre a hero-img-overlay */
         }
         .about-wrap { display: flex; align-items: flex-start; justify-content: center; gap: 80px; max-width: 1400px; margin: 0 auto; }
         .about-img { flex: 1; text-align: right; }
@@ -103,6 +139,8 @@
             .about-wrap { flex-direction: column; text-align: center; } 
             .hero h1 { font-size: 42px; }
             .about-img { text-align: center; }
+            .hero { background-position: center; }
+            .hero-img-overlay { opacity: 0.1; }
         }
     </style>
 </head>
@@ -122,7 +160,7 @@
     </nav>
 
     <header class="hero">
-        <p>Decodificando o Sucesso</p>
+        <div class="hero-img-overlay"></div> <p>Decodificando o Sucesso</p>
         <h1>Erik Estevão</h1>
     </header>
 
