@@ -19,6 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg-site); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
 
+        /* Menu Superior */
         nav {
             position: fixed; top: 0; width: 100%; background: #fff;
             padding: 25px 8%; z-index: 100; display: flex; justify-content: space-between; 
@@ -26,7 +27,7 @@
         }
         .logo { font-family: 'Playfair Display'; font-weight: 700; font-size: 28px; color: var(--text-main); text-decoration: none; letter-spacing: 4px; }
 
-        /* Botão WhatsApp que Brilha */
+        /* WhatsApp Flutuante com Brilho */
         .btn-whats-float {
             position: fixed; bottom: 40px; right: 40px;
             width: 75px; height: 75px; background-color: #25d366;
@@ -43,7 +44,7 @@
         @keyframes shine { 0% { left: -150%; } 100% { left: 150%; } }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* Seção Sobre - Foto Herick3 à Esquerda */
+        /* Seção Sobre */
         #sobre { padding: 180px 8% 120px; background: #fff; min-height: 100vh; display: flex; align-items: center; }
         .about-wrap { display: flex; align-items: center; justify-content: center; gap: 80px; max-width: 1400px; margin: 0 auto; width: 100%; }
         
@@ -54,8 +55,8 @@
         .about-text h2 { font-family: 'Playfair Display'; font-size: 65px; margin-bottom: 40px; line-height: 1.1; color: var(--text-main); }
         .quote-box { margin-top: 50px; padding: 45px; border-left: 6px solid var(--accent-gold); background: var(--bg-site); font-family: 'Playfair Display'; font-style: italic; font-size: 28px; }
 
-        /* Feedbacks em 2 Colunas Lado a Lado */
-        #depoimentos { padding: 120px 8%; text-align: center; background: var(--bg-site); }
+        /* Feedbacks 2x2 */
+        #depoimentos { padding: 120px 8%; text-align: center; background: var(--bg-site); width: 100%; }
         #depoimentos h2 { font-family: 'Playfair Display'; font-size: 48px; margin-bottom: 80px; text-transform: uppercase; letter-spacing: 3px;}
         .testimonial-grid { 
             display: grid; 
@@ -67,7 +68,8 @@
         .testimonial-card { background: #fff; padding: 60px; border-radius: 4px; text-align: left; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
         /* Rodapé Horizontal */
-        footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; }
+        footer { background: var(--footer-bg); color: #fff; padding: 100px 8% 50px; width: 100%; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; }
         .footer-social { display: flex; gap: 25px; margin-top: 35px; }
         .footer-social a { 
             color: var(--accent-gold); font-size: 30px; width: 70px; height: 70px; 
@@ -125,14 +127,17 @@
     </section>
 
     <footer>
-        <h4 style="color:var(--accent-gold); font-size: 22px;">CONTATO</h4>
-        <p style="font-size: 18px;">Goiânia - GO | +55 (61) 98168-2382</p>
-        <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none;">Erikstylist@gmail.com</a></p>
-        <div class="footer-social">
-            <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
+        <div class="footer-grid">
+            <h4 style="color:var(--accent-gold); font-size: 22px;">CONTATO</h4>
+            <p style="font-size: 18px; margin-top: 10px;">Goiânia - GO | +55 (61) 98168-2382</p>
+            <p><a href="mailto:Erikstylist@gmail.com" style="color:#fff; text-decoration:none; font-size: 18px;">Erikstylist@gmail.com</a></p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/stylisterikestevao" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5561981682382" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:Erikstylist@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
+        <p style="text-align: center; margin-top: 60px; font-size: 12px; opacity: 0.3;">&copy; 2026 DEVELOPED BY WAGNER SARAFIM</p>
     </footer>
 
 </body>
